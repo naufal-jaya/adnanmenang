@@ -4,3 +4,159 @@
     font-size: 64px;
     text-align: center;
 }
+
+.stApp {
+    background-color: #f3ede7;
+    color: black;
+}
+
+header[data-testid="stHeader"] {
+    /* background-color: #e3c9a6;
+    color: white;
+    padding: 20px;
+    text-align: center; */
+    display: none;
+}
+
+div[role="progressbar"] {
+    background-color: #f3ede7 !important; /* warna track */
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+div[data-testid="stProgress"] div[role="progressbar"] {
+    background-color: #f3ede7 !important; /* warna track */
+    border-radius: 4px;
+}
+div[data-testid="stProgress"] div[role="progressbar"] > div {
+    background-color: #5c4033 !important; /* warna progress */
+    border-radius: 4px;
+}
+
+.st-key-progress div {
+    background-color: #f3ede7 !important;
+}
+
+div[data-testid="stDecoration"] {
+    display: none;
+}
+
+hr {
+    border: none;
+    height: 2px; /* tebal garis */
+    background-color: #000000 !important; /* warna garis */
+    margin: 8px 0; /* jarak atas-bawah */
+}
+
+button[kind="primary"] {
+    background-color: #292014 !important;
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+button[kind="secondary"] {
+    background-color: #C6D3D4 !important;
+    color: #000000 !important;
+}
+
+button:hover[kind="secondary"] {
+    background-color: #89c2c6 !important;
+    color: #ffffff !important;
+}
+
+button[kind="primary"] {
+    background-color: #292014 !important;
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+button[kind="primary"]:hover {
+    background-color: #4ebd7a !important;
+    color: #ffffff !important;
+}
+
+.st-key-btn_input,
+.st-key-btn_prediksi,
+.st-key-btn_armada,
+.st-key-btn_jadwal {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.st-key-btn_input button,
+.st-key-btn_prediksi button,
+.st-key-btn_armada button,
+.st-key-btn_jadwal button {
+    border-radius: 0;
+    background-color: #f3ede7 !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #000000 !important;
+    white-space: nowrap !important;
+    border-left: 3px solid #928778 !important;
+    border-right: 3px solid #928778 !important;
+}
+
+.st-key-btn_input button:hover,
+.st-key-btn_prediksi button:hover,
+.st-key-btn_armada button:hover,
+.st-key-btn_jadwal button:hover {
+    background-color: #ded2c3 !important;
+    color: #000000 !important;
+}
+
+div[data-testid="stFileUploader"] section[data-testid="stFileUploaderDropzone"] {
+        background-color: #C6D3D4; /* warna background tombol */
+        color: #000000; /* warna teks */
+        padding: 8px;
+    }
+
+    /* Hover effect */
+    div[data-testid="stFileUploader"] section[data-testid="stFileUploaderDropzone"]:hover {
+        background-color: #89c2c6;
+    }
+
+    div[data-testid="stFileUploader"] section[data-testid="stFileUploaderDropzone"] span {
+        color: #000000;
+        font-weight: bold;
+    }
+
+    div[data-testid="stFileUploader"] section[data-testid="stFileUploaderDropzone"]:hover span {
+        color: #ffffff !important;
+        font-weight: bold;
+    }
+
+    div[data-testid="stFileUploader"] section[data-testid="stFileUploaderDropzone"] button {
+        color: #89c2c6;
+        border-color: #000000
+    }
+
+    div[data-testid="stFileUploader"] section[data-testid="stFileUploaderDropzone"]:hover button {
+        color: #89c2c6;
+        border-color: #ffffff
+    }
+
+    div[data-testid="stFileUploader"] label {
+        color: #000000;
+        font-weight: bold;
+    }
+
+div[data-testid="stDataFrame"] thead tr th {
+    background-color: #faebd7 !important;
+    color: black !important;
+}
+
+/* Isi tabel */
+div[data-testid="stDataFrame"] tbody tr td {
+    background-color: #fffaf0 !important;
+    color: black !important;
+}
+.st-key-contoh_penumpang {
+    background-color: #C6D3D4 !important;
+    color: #000000 !important;}
+
+
+

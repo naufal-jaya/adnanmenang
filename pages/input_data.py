@@ -1,59 +1,62 @@
-# import streamlit as st
-# import pandas as pd
-
-# st.title("Prediksi Jumlah Penumpang dan Armada")
-
-# # Upload file histori penumpang
-# file_penumpang = st.file_uploader("Upload file CSV histori jumlah penumpang", type=["csv"])
-# # Upload file libur nasional
-# file_libur = st.file_uploader("Upload file CSV hari libur nasional", type=["csv"])
-
-# # Input jumlah armada total dan per jam
-# armada_total = st.number_input("Jumlah total armada yang dimiliki", min_value=1)
-# armada_per_jam = st.number_input("Jumlah armada standar per jam per rute", min_value=1)
-
-# # Jika semua input telah tersedia
-# if file_penumpang and file_libur:
-#     df_penumpang = pd.read_csv(file_penumpang)
-#     df_libur = pd.read_csv(file_libur)
-
-#     st.success("✅ File berhasil dimuat.")
-#     st.subheader("Cuplikan Data Histori Penumpang")
-#     st.dataframe(df_penumpang.head())
-
-#     st.subheader("Cuplikan Data Hari Libur")
-#     st.dataframe(df_libur.head())
-
-#     if st.button("Lanjut"):
-#      st.session_state["data_penumpang"] = df_penumpang
-#      st.session_state["data_libur"] = df_libur
-#      st.session_state["armada_total"] = armada_total
-#      st.session_state["armada_per_jam"] = armada_per_jam
-#      st.success("Data sudah siap! Silakan buka halaman prediksi untuk melanjutkan 🚀")
 
 import streamlit as st
 import pandas as pd
+import pathlib
+from utils import load_css
+import time
+
+with open("style.css") as f:
+    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+st.markdown('<div class="custom-btn-group">', unsafe_allow_html=True)
+
+if  st.button("Home", key="btn_home", use_container_width=False):
+    st.switch_page("home.py")
 
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
-    if st.button("Input Data", use_container_width=True):
+    if st.button("Input Data", key="btn_input", use_container_width=True):
         st.switch_page("pages/input_data.py")
+
 with col2:
-    if st.button("Prediksi Penumpang", use_container_width=True):
+    if st.button("Prediksi Penumpang", key="btn_prediksi", use_container_width=True):
         st.switch_page("pages/prediksi_penumpang.py")
+
 with col3:
-    if st.button("Pembagian Armada", use_container_width=True):
+    if st.button("Pembagian Armada", key="btn_armada", use_container_width=True):
         st.switch_page("pages/pembagian_armada.py")
+
 with col4:
-    if st.button("Penjadwalan Armada", use_container_width=True):
+    if st.button("Penjadwalan Armada", key="btn_jadwal", use_container_width=True):
         st.switch_page("pages/penjadwalan.py")
 
-st.title("🚀 Upload dan Simpan Data")
+st.markdown('</div>', unsafe_allow_html=True)
 
-# Progress bar
-progress = st.progress(25)
-st.markdown("### Langkah 1 dari 4: Input Data")
+st.title("Upload dan Simpan Data")
+
+progress_container = st.empty()
+
+for percent in range(25):
+    track_color = "#C6D3D4"  # warna track
+    fill_color = "#89c2c6"   # warna progress
+    progress_container.markdown(f"""
+        <div style="
+            background-color: {track_color};
+            border-radius: 4px;
+            height: 10px;
+            width: 100%;
+            overflow: hidden;
+        ">
+            <div style="
+                background-color: {fill_color};
+                height: 100%;
+                width: {percent}%;
+                transition: width 0.1s;
+            "></div>
+        </div>
+    """, unsafe_allow_html=True)
+    time.sleep(0.02)
 
 # Menampilkan contoh file
 st.subheader("📝 Contoh Format File CSV")
@@ -63,7 +66,7 @@ contoh_libur = pd.read_csv("pages/Contoh_Data_HariLibur.csv")
 col1, col2 = st.columns(2)
 with col1:
     st.write("Contoh Data Penumpang:")
-    st.dataframe(contoh_penumpang.head())
+    st.dataframe(contoh_penumpang.head(), key ="contoh_penumpang")
     st.download_button(
         label="⬇️ Download Contoh Data Penumpang",
         data=contoh_penumpang.to_csv(index=False),
@@ -81,16 +84,18 @@ with col2:
         mime="text/csv"
     )
 
+# st.markdown("<div class='markdown'>", unsafe_allow_html=True)
 st.markdown("---")
+# st.markdown("</div>", unsafe_allow_html=True)
+
 
 # 1. Upload file
 input_penumpang = st.file_uploader("Upload CSV Penumpang", type=["csv"])
 input_libur = st.file_uploader("Upload CSV Hari Libur", type=["csv"])
 
-# 2. Input angka
+st.button("🔄 Refresh", key="refresh_input", use_container_width=False)
 
-
-# 3. Tombol lanjut
+# 2. Validasi input
 st.markdown("---")
 if st.button("⏩ Lanjut ke Prediksi", use_container_width=True):
     if input_penumpang and input_libur:
@@ -120,7 +125,6 @@ if st.button("⏩ Lanjut ke Prediksi", use_container_width=True):
         st.switch_page("pages/prediksi_penumpang.py")
     else:
         st.error("❗ Upload kedua file sebelum lanjut.")
-
 
 
 

@@ -1,25 +1,56 @@
 import streamlit as st
 import pandas as pd
+import time
+
+with open("style.css") as f:
+    st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+st.markdown('<div class="custom-btn-group">', unsafe_allow_html=True)
 
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
-    if st.button("Input Data", use_container_width=True):
+    if st.button("Input Data", key="btn_input", use_container_width=True):
         st.switch_page("pages/input_data.py")
+
 with col2:
-    if st.button("Prediksi Penumpang", use_container_width=True):
+    if st.button("Prediksi Penumpang", key="btn_prediksi", use_container_width=True):
         st.switch_page("pages/prediksi_penumpang.py")
+
 with col3:
-    if st.button("Pembagian Armada", use_container_width=True):
+    if st.button("Pembagian Armada", key="btn_armada", use_container_width=True):
         st.switch_page("pages/pembagian_armada.py")
+
 with col4:
-    if st.button("Penjadwalan Armada", use_container_width=True):
+    if st.button("Penjadwalan Armada", key="btn_jadwal", use_container_width=True):
         st.switch_page("pages/penjadwalan.py")
 
+st.markdown('</div>', unsafe_allow_html=True)
 
-st.progress(100)
-st.markdown("### Langkah 4 dari 4: Penjadwalan Armada")
 
+
+progress_container = st.empty()
+
+for percent in range(25):
+    track_color = "#C6D3D4"  # warna track
+    fill_color = "#89c2c6"   # warna progress
+    progress_container.markdown(f"""
+        <div style="
+            background-color: {track_color};
+            border-radius: 4px;
+            height: 10px;
+            width: 100%;
+            overflow: hidden;
+        ">
+            <div style="
+                background-color: {fill_color};
+                height: 100%;
+                width: {percent}%;
+                transition: width 0.1s;
+            "></div>
+        </div>
+    """, unsafe_allow_html=True)
+    time.sleep(0.02)
 st.title("Penjadwalan Armada")
 
 
