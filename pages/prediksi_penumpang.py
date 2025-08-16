@@ -34,7 +34,7 @@ st.title("📈 Prediksi Jumlah Penumpang")
 
 progress_container = st.empty()
 
-for percent in range(25):
+for percent in range(50):
     track_color = "#C6D3D4"  # warna track
     fill_color = "#89c2c6"   # warna progress
     progress_container.markdown(f"""
@@ -183,9 +183,10 @@ if (
         st.success("📁 File prediksi_penumpang_besok.csv telah disimpan.")
         
         # Tombol untuk lanjut ke pembagian armada
-        col1, col2 = st.columns([7,3])
+        col1, col2 = st.columns([7, 3])
+
         with col2:
-            if st.button("⏩ Lanjut ke Pembagian Armada", use_container_width=True):
+            if st.button("Next - Pembagian Armada", use_container_width=False):
                 st.switch_page("pages/pembagian_armada.py")
 else:
     st.warning("⚠️ Data belum lengkap.")

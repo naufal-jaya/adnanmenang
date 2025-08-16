@@ -14,22 +14,28 @@ st.set_page_config(
 
 st.markdown(
     div(
-        "<h1>Prediksi Penumpang Bus</h1>",
+        "<h1>Prediksi Penumpang Armada</h1>",
         class_name="header"
     ),
     unsafe_allow_html=True
 )
 
-st.subheader("Aplikasi ini berfungsi untuk:")
-col1, col2, col3 = st.columns(3)
 
-with col1:
-    st.markdown("### Prediksi Penumpang")
-    st.markdown("Prediksi penumpang berdasarkan data historis dan hari libur menggunakan model machine learning.")
+with st.container(key="desc_home"):
+    st.subheader("Aplikasi ini berfungsi untuk:")
+    col1, col2, col3 = st.columns(3)
 
-with col2:
-    st.markdown("### Pembagian Armada")
-    st.markdown("Pembagian armada berdasarkan pembobotan penumpang untuk mengoptimalkan penggunaan armada bus.")
+    with col1:
+        st.markdown("### Memprediksi Jumlah Penumpang")
+        st.markdown("Prediksi penumpang berdasarkan data historis dan hari libur menggunakan model machine learning.")
+
+    with col2:
+        st.markdown("### Membagi Armada")
+        st.markdown("Pembagian armada berdasarkan pembobotan penumpang untuk mengoptimalkan penggunaan armada bus.")
+
+    with col3:
+        st.markdown("### Menjadwalkan Armada")
+        st.markdown("Penjadwalan armada bus berdasarkan data penumpang dan hari libur untuk efisiensi operasional.")
 
 
 st.markdown("---")

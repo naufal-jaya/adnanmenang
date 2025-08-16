@@ -33,7 +33,7 @@ with col4:
 
 st.markdown('</div>', unsafe_allow_html=True)
 
-st.title("Upload dan Simpan Data")
+st.title("Unggah dan Simpan Data")
 
 progress_container = st.empty()
 
@@ -83,7 +83,7 @@ with col2:
         file_name="Contoh_Data_HariLibur.csv",
         mime="text/csv"
     )
-
+st.write("Pastikan kolom file CSV yang diunggah sesuai dengan format contoh di atas.")
 # st.markdown("<div class='markdown'>", unsafe_allow_html=True)
 st.markdown("---")
 # st.markdown("</div>", unsafe_allow_html=True)
@@ -97,34 +97,45 @@ st.button("🔄 Refresh", key="refresh_input", use_container_width=False)
 
 # 2. Validasi input
 st.markdown("---")
-if st.button("⏩ Lanjut ke Prediksi", use_container_width=True):
-    if input_penumpang and input_libur:
-        df_penumpang = pd.read_csv(input_penumpang)
-        df_libur = pd.read_csv(input_libur)
 
-        df_penumpang.columns = df_penumpang.columns.str.strip().str.lower()
+col1, col2 = st.columns([7,3])
 
-        required_cols_penumpang = {"hari", "libur nasional", "tanggal", "rute", "jam", "jumlah penumpang"}
-        if not required_cols_penumpang.issubset(df_penumpang.columns):
-            st.error(f"CSV penumpang harus mengandung kolom: Hari, Libur Nasional, Tanggal, Rute, Jam, Jumlah Penumpang")
-            st.stop()
+error = None
+with col2:
+    if st.button("Next - Prediksi Penumpang", use_container_width=False):
+        if input_penumpang and input_libur:
+            df_penumpang = pd.read_csv(input_penumpang)
+            df_libur = pd.read_csv(input_libur)
+
+            df_penumpang.columns = df_penumpang.columns.str.strip().str.lower()
+
+            required_cols_penumpang = {"hari", "libur nasional", "tanggal", "rute", "jam", "jumlah penumpang"}
+            if not required_cols_penumpang.issubset(df_penumpang.columns):
+                st.error(f"CSV penumpang harus mengandung kolom: Hari, Libur Nasional, Tanggal, Rute, Jam, Jumlah Penumpang")
+                st.stop()
+            
+            df_libur.columns = df_libur.columns.str.strip().str.lower()
+
+            required_cols_libur = {"tanggal libur", "hari libur"}
+            if not required_cols_libur.issubset(df_libur.columns):
+                st.error(f"CSV hari libur harus mengandung kolom: Tanggal Libur, Hari Libur")
+                st.stop()
+            
+            st.session_state["data_penumpang"] = df_penumpang
+            st.session_state["data_libur"] = df_libur
+            st.session_state["csv_input_penumpang"] = input_penumpang
+            st.session_state["csv_input_libur"] = input_libur
+
+            st.success("✅ Data berhasil divalidasi!")
+            st.switch_page("pages/prediksi_penumpang.py")
+        else:
+            error = True
         
-        df_libur.columns = df_libur.columns.str.strip().str.lower()
+if error:
+    st.error("❗ Upload kedua file sebelum lanjut.")
 
-        required_cols_libur = {"tanggal libur", "hari libur"}
-        if not required_cols_libur.issubset(df_libur.columns):
-            st.error(f"CSV hari libur harus mengandung kolom: Tanggal Libur, Hari Libur")
-            st.stop()
-        
-        st.session_state["data_penumpang"] = df_penumpang
-        st.session_state["data_libur"] = df_libur
-        st.session_state["csv_input_penumpang"] = input_penumpang
-        st.session_state["csv_input_libur"] = input_libur
-
-        st.success("✅ Data berhasil divalidasi!")
-        st.switch_page("pages/prediksi_penumpang.py")
-    else:
-        st.error("❗ Upload kedua file sebelum lanjut.")
+else:
+    pass
 
 
 

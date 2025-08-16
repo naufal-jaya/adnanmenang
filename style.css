@@ -18,6 +18,13 @@ header[data-testid="stHeader"] {
     display: none;
 }
 
+.st-key-desc_home {
+    text-align: center;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: #000000;
+}
+
 div[role="progressbar"] {
     background-color: #f3ede7 !important; /* warna track */
     border-radius: 4px;
@@ -58,6 +65,7 @@ button[kind="primary"] {
 button[kind="secondary"] {
     background-color: #C6D3D4 !important;
     color: #000000 !important;
+    white-space: nowrap !important;
 }
 
 button:hover[kind="secondary"] {
@@ -77,6 +85,14 @@ button[kind="primary"]:hover {
     color: #ffffff !important;
 }
 
+
+
+.divider {
+    border-left: 1px solid #ccc;
+    height: 40px;
+    margin: auto;
+}
+
 .st-key-btn_input,
 .st-key-btn_prediksi,
 .st-key-btn_armada,
@@ -85,19 +101,20 @@ button[kind="primary"]:hover {
     margin: 0 !important;
 }
 
+.st-key-btn_home button * {
+    font-weight: bold !important;
+}
+
 .st-key-btn_input button,
 .st-key-btn_prediksi button,
 .st-key-btn_armada button,
 .st-key-btn_jadwal button {
-    border-radius: 0;
     background-color: #f3ede7 !important;
     background-image: none !important;
     border: none !important;
     box-shadow: none !important;
     color: #000000 !important;
     white-space: nowrap !important;
-    border-left: 3px solid #928778 !important;
-    border-right: 3px solid #928778 !important;
 }
 
 .st-key-btn_input button:hover,
@@ -121,12 +138,10 @@ div[data-testid="stFileUploader"] section[data-testid="stFileUploaderDropzone"] 
 
     div[data-testid="stFileUploader"] section[data-testid="stFileUploaderDropzone"] span {
         color: #000000;
-        font-weight: bold;
     }
 
     div[data-testid="stFileUploader"] section[data-testid="stFileUploaderDropzone"]:hover span {
         color: #ffffff !important;
-        font-weight: bold;
     }
 
     div[data-testid="stFileUploader"] section[data-testid="stFileUploaderDropzone"] button {
@@ -149,6 +164,9 @@ div[data-testid="stDataFrame"] thead tr th {
     color: black !important;
 }
 
+div[data-testid="stMarkdownContainer"] {
+    color: #000000 !important;
+}
 /* Isi tabel */
 div[data-testid="stDataFrame"] tbody tr td {
     background-color: #fffaf0 !important;

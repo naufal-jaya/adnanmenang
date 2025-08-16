@@ -32,7 +32,7 @@ st.title("🚍 Pembagian Jumlah Armada")
 
 progress_container = st.empty()
 
-for percent in range(25):
+for percent in range(75):
     track_color = "#C6D3D4"  # warna track
     fill_color = "#89c2c6"   # warna progress
     progress_container.markdown(f"""

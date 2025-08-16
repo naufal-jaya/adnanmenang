@@ -31,7 +31,7 @@ st.markdown('</div>', unsafe_allow_html=True)
 
 progress_container = st.empty()
 
-for percent in range(25):
+for percent in range(100):
     track_color = "#C6D3D4"  # warna track
     fill_color = "#89c2c6"   # warna progress
     progress_container.markdown(f"""
@@ -45,7 +45,7 @@ for percent in range(25):
             <div style="
                 background-color: {fill_color};
                 height: 100%;
-                width: {percent}%;
+                width: {percent + 1}%;
                 transition: width 0.1s;
             "></div>
         </div>
