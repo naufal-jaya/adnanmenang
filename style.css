@@ -15,7 +15,7 @@ header[data-testid="stHeader"] {
     color: white;
     padding: 20px;
     text-align: center; */
-    display: flex;
+    display: none;
 }
 
 .st-key-desc_home {
