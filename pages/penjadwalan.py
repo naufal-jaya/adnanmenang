@@ -7,7 +7,7 @@ with open("style.css") as f:
 
 if  st.button("Home", key="btn_home", use_container_width=False):
     st.switch_page("home.py")
-    
+
 st.markdown('<div class="custom-btn-group">', unsafe_allow_html=True)
 
 col1, col2, col3, col4 = st.columns(4)
@@ -95,8 +95,8 @@ if st.session_state.get("hasil_pembagian_armada") is not None:
 
     st.button("Download Jadwal Armada", on_click=lambda: st.download_button)
 
-    st.button("Kembali ke Home", use_container_width=True, on_click=lambda: st.switch_page("pages/home.py"))
-
+    if  st.button("Home", key="btn_home", use_container_width=False):
+        st.switch_page("home.py")
 else: 
     st.error("❌ Hasil pembagian armada belum tersedia")
     if st.button("Kembali ke Input Data", use_container_width=True):
