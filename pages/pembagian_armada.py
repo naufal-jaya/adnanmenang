@@ -5,6 +5,9 @@ import time
 with open("style.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
+if  st.button("Home", key="btn_home", use_container_width=False):
+    st.switch_page("home.py")
+    
 st.markdown('<div class="custom-btn-group">', unsafe_allow_html=True)
 
 col1, col2, col3, col4 = st.columns(4)
@@ -126,7 +129,7 @@ if (
 
         # Tombol download
         csv = df_hasil.to_csv(index=False).encode("utf-8")
-        col1, col2 = st.columns([7,3])
+        col1, col2 = st.columns([7.3,2.7])
         with col1:
             st.download_button("📥 Download CSV", csv, file_name="hasil_pembagian_armada.csv", mime="text/csv")
         with col2:

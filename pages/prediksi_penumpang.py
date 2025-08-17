@@ -8,6 +8,9 @@ import time
 with open("style.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
+if  st.button("Home", key="btn_home", use_container_width=False):
+    st.switch_page("home.py")
+    
 st.markdown('<div class="custom-btn-group">', unsafe_allow_html=True)
 
 col1, col2, col3, col4 = st.columns(4)
@@ -183,7 +186,7 @@ if (
         st.success("📁 File prediksi_penumpang_besok.csv telah disimpan.")
         
         # Tombol untuk lanjut ke pembagian armada
-        col1, col2 = st.columns([7, 3])
+        col1, col2 = st.columns([7.2, 2.8])
 
         with col2:
             if st.button("Next - Pembagian Armada", use_container_width=False):
