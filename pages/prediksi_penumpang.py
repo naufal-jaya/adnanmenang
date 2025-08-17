@@ -10,7 +10,7 @@ with open("style.css") as f:
 
 if  st.button("Home", key="btn_home", use_container_width=False):
     st.switch_page("home.py")
-    
+
 st.markdown('<div class="custom-btn-group">', unsafe_allow_html=True)
 
 col1, col2, col3, col4 = st.columns(4)
@@ -68,7 +68,7 @@ if st.session_state.get("data_penumpang") is None:
 if st.session_state.get("data_libur") is None:
     st.error("❌ Data hari libur belum diupload")
     if st.button("⬅️ Kembali ke Input Data"):
-        st.switch_page("pages/input_data.py")
+        st.switch_page("pages/input_data.py", use_container_width=True)
     st.stop()
 
 if (

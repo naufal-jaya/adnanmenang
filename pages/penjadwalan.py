@@ -54,7 +54,7 @@ for percent in range(100):
         </div>
     """, unsafe_allow_html=True)
     time.sleep(0.02)
-st.title("Penjadwalan Armada")
+st.title("📅Penjadwalan Armada")
 
 
 if st.session_state.get("hasil_pembagian_armada") is not None:
@@ -99,7 +99,7 @@ if st.session_state.get("hasil_pembagian_armada") is not None:
         st.switch_page("home.py")
 else: 
     st.error("❌ Hasil pembagian armada belum tersedia")
-    if st.button("Kembali ke Input Data", use_container_width=True):
-        st.switch_page("pages/input_data.py")
+    if st.button("Kembali ke Pembagian Armada", use_container_width=True):
+        st.switch_page("pages/pembagian_armada.py")
 
 

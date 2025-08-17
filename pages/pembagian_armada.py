@@ -7,7 +7,7 @@ with open("style.css") as f:
 
 if  st.button("Home", key="btn_home", use_container_width=False):
     st.switch_page("home.py")
-    
+
 st.markdown('<div class="custom-btn-group">', unsafe_allow_html=True)
 
 col1, col2, col3, col4 = st.columns(4)
@@ -59,8 +59,8 @@ for percent in range(75):
 # Cek hasil prediksi tersedia
 if st.session_state.get("hasil_prediksi") is None:
     st.error("❌ Hasil prediksi belum tersedia")
-    if st.button("⬅️ Kembali ke Prediksi"):
-        st.switch_page("pages/input_data.py")
+    if st.button("Kembali ke Input Data"):
+        st.switch_page("pages/input_data.py", use_container_width=True)
     st.stop()
 # armada_total = st.number_input("Jumlah armada total", min_value=1)
 # armada_per_jam = st.number_input("Jumlah armada per jam per rute", min_value=1)
