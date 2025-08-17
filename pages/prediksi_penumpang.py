@@ -61,14 +61,14 @@ for percent in range(50):
 # Cek apakah semua data sudah ada di session_state DAN bukan None
 if st.session_state.get("data_penumpang") is None:
     st.error("❌ Data penumpang belum diupload")
-    if st.button("⬅️ Kembali ke Input Data"):
+    if st.button("Kembali ke Input Data", use_container_width=True):
         st.switch_page("pages/input_data.py")
     st.stop()
     
 if st.session_state.get("data_libur") is None:
     st.error("❌ Data hari libur belum diupload")
-    if st.button("⬅️ Kembali ke Input Data"):
-        st.switch_page("pages/input_data.py", use_container_width=True)
+    if st.button("⬅️ Kembali ke Input Data", use_container_width=True):
+        st.switch_page("pages/input_data.py")
     st.stop()
 
 if (

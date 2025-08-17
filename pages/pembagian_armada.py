@@ -59,8 +59,8 @@ for percent in range(75):
 # Cek hasil prediksi tersedia
 if st.session_state.get("hasil_prediksi") is None:
     st.error("❌ Hasil prediksi belum tersedia")
-    if st.button("Kembali ke Input Data"):
-        st.switch_page("pages/input_data.py", use_container_width=True)
+    if st.button("Kembali ke Input Data", use_container_width=True):
+        st.switch_page("pages/input_data.py")
     st.stop()
 # armada_total = st.number_input("Jumlah armada total", min_value=1)
 # armada_per_jam = st.number_input("Jumlah armada per jam per rute", min_value=1)

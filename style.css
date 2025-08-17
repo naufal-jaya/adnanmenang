@@ -15,7 +15,7 @@ header[data-testid="stHeader"] {
     color: white;
     padding: 20px;
     text-align: center; */
-    display: none;
+    display: flex;
 }
 
 .st-key-desc_home {
@@ -68,10 +68,30 @@ button[kind="secondary"] {
     white-space: nowrap !important;
 }
 
-button:hover[kind="secondary"] {
+/* button[kind="secondary"]:hover:not(.st-key-btn_input):not(.st-key-btn_prediksi):not(.st-key-btn_armada):not(.st-key-btn_jadwal) *{
+    background-color: #89c2c6 !important;
+    color: #ffffff !important;
+} */
+
+/* button[kind="secondary"]:not(.st-key-btn_input):not(.st-key-btn_prediksi):not(.st-key-btn_armada):not(.st-key-btn_jadwal):hover{
     background-color: #89c2c6 !important;
     color: #ffffff !important;
 }
+
+button[kind="secondary"]:not(.st-key-btn_input):not(.st-key-btn_prediksi):not(.st-key-btn_armada):not(.st-key-btn_jadwal):hover p {
+    color: #ffffff !important;
+} */
+
+button[kind="secondary"]:hover,
+button[kind="secondary"]:hover * {
+    background-color: #89c2c6 !important;
+    color: #ffffff !important;
+}
+
+/* button[kind="secondary"]:hover:not(.st-key-btn_input):not(.st-key-btn_prediksi):not(.st-key-btn_armada):not(.st-key-btn_jadwal) *{
+    background-color: #89c2c6 !important;
+    color: #ffffff !important;
+} */
 
 button[kind="primary"] {
     background-color: #292014 !important;
@@ -110,20 +130,54 @@ button[kind="primary"]:hover {
 .st-key-btn_armada button,
 .st-key-btn_jadwal button {
     background-color: #f3ede7 !important;
-    background-image: none !important;
-    border: none !important;
-    box-shadow: none !important;
     color: #000000 !important;
     white-space: nowrap !important;
 }
 
+/* .st-key-btn_input button:hover *,
+.st-key-btn_prediksi button:hover *,
+.st-key-btn_armada button:hover *,
+.st-key-btn_jadwal button:hover *{
+    background-color: #ded2c3 !important;
+    color: #000000 !important;
+} */
+
 .st-key-btn_input button:hover,
 .st-key-btn_prediksi button:hover,
 .st-key-btn_armada button:hover,
-.st-key-btn_jadwal button:hover {
+.st-key-btn_jadwal button:hover,
+.st-key-btn_input button:hover *,
+.st-key-btn_prediksi button:hover *,
+.st-key-btn_armada button:hover *,
+.st-key-btn_jadwal button:hover * {
     background-color: #ded2c3 !important;
     color: #000000 !important;
 }
+
+/* .st-key-btn_input button:hover,
+.st-key-btn_prediksi button:hover,
+.st-key-btn_armada button:hover,
+.st-key-btn_jadwal button:hover {
+    background-color: #ded2c3 !important;  
+    background-image: none !important;
+    box-shadow: none !important;
+} */
+
+/* Pastikan teks & ikon juga ikut hitam */
+/* .st-key-btn_input button:hover *,
+.st-key-btn_prediksi button:hover *,
+.st-key-btn_armada button:hover *,
+.st-key-btn_jadwal button:hover * {
+    color: #000000 !important;
+    fill: #000000 !important; 
+} */
+
+/* .st-key-btn_input button:hover p,
+.st-key-btn_prediksi button:hover p,
+.st-key-btn_armada button:hover p,
+.st-key-btn_jadwal button:hover p {
+    color: #000000 !important;
+} */
 
 div[data-testid="stFileUploader"] section[data-testid="stFileUploaderDropzone"] {
         background-color: #C6D3D4; /* warna background tombol */
