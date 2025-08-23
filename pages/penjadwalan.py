@@ -93,7 +93,7 @@ if st.session_state.get("hasil_pembagian_armada") is not None:
     st.subheader("📅 Jadwal Armada")
     st.dataframe(df_jadwal)
 
-    st.button("Download Jadwal Armada", on_click=lambda: st.download_button)
+    st.button("📥 Download CSV Jadwal Armada", on_click=lambda: st.download_button)
 
     if  st.button("Home", key="btn_home2", use_container_width=True):
         st.switch_page("home.py")
