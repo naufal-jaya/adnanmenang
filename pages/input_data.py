@@ -33,7 +33,7 @@ with col4:
 
 st.markdown('</div>', unsafe_allow_html=True)
 
-st.title("Unggah dan Simpan Data")
+st.title("📤Input Data")
 
 progress_container = st.empty()
 
@@ -84,9 +84,7 @@ with col2:
         mime="text/csv"
     )
 st.write("Pastikan kolom file CSV yang diunggah sesuai dengan format contoh di atas.")
-# st.markdown("<div class='markdown'>", unsafe_allow_html=True)
 st.markdown("---")
-# st.markdown("</div>", unsafe_allow_html=True)
 
 
 # 1. Upload file

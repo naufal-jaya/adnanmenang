@@ -75,44 +75,14 @@ if (
     st.session_state.get("data_penumpang") is not None and
     st.session_state.get("data_libur") is not None 
 ):
-    # Semua data tersedia → lanjut
+    # Semua data tersedia
     df_penumpang = st.session_state["data_penumpang"]
     df_libur = st.session_state["data_libur"]
-    # Semua data aman → lanjut
-    # df_penumpang = st.session_state["data_penumpang"]
-    # df_libur = st.session_state["data_libur"]
-    # armada_total = st.session_state["armada_total"]
-    # armada_per_jam = st.session_state["armada_per_jam"]
 
     st.success("Data lengkap.")
     st.write("Cuplikan data penumpang:")
     st.dataframe(df_penumpang.head())
-
-    # if "data_penumpang" in st.session_state:
-    #     st.write("Data Penumpang:")
-    #     st.dataframe(st.session_state["data_penumpang"])
-    # else:
-    #     st.warning("❌ Data penumpang belum tersedia.")
-
-    # if "data_libur" in st.session_state:
-    #     st.write("Data Libur:")
-    #     st.dataframe(st.session_state["data_libur"])
-    # else:
-    #     st.warning("❌ Data libur belum tersedia.")
-
-    # if "armada_total" in st.session_state:
-    #     st.write(f"Jumlah Armada Total: {st.session_state['armada_total']}")
-    # else:
-    #     st.warning("❌ Armada total belum tersedia.")
-
-    # if "armada_per_jam" in st.session_state:
-    #     st.write(f"Jumlah Armada per Jam: {st.session_state['armada_per_jam']}")
-    # else:
-    #     st.warning("❌ Armada per jam belum tersedia.")
-
-    # Ambil data dari session_state
    
-
    # === Preprocessing ===
     df_penumpang['tanggal'] = pd.to_datetime(df_penumpang['tanggal'])
     le_hari = LabelEncoder()
@@ -160,13 +130,7 @@ if (
     'Jam': data_prediksi['Jam'],
     'Jumlah Penumpang Prediksi': prediksi.astype(int)
    })
-    # Susun hasil
-    # hasil_df = pd.DataFrame(data_prediksi, columns=['Hari_encoded', 'Libur Nasional', 'Rute_encoded', 'Jam'])
-    # hasil_df['Tanggal'] = besok.date()
-    # hasil_df['Hari'] = hari_besok
-    # hasil_df['Rute'] = le_rute.inverse_transform(hasil_df['Rute_encoded'])
-    # hasil_df['JumlahPenumpang_Prediksi'] = prediksi.astype(int)
-    # hasil_df = pd.DataFrame()
+ 
 
 
     # Tampilkan
