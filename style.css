@@ -104,6 +104,10 @@ button[kind="primary"]:hover {
     font-weight: bold !important;
 }
 
+.st-key-btn_home2 button * {
+    font-weight: bold !important;
+}
+
 .st-key-btn_input button,
 .st-key-btn_prediksi button,
 .st-key-btn_armada button,

@@ -95,7 +95,7 @@ if st.session_state.get("hasil_pembagian_armada") is not None:
 
     st.button("Download Jadwal Armada", on_click=lambda: st.download_button)
 
-    if  st.button("Home", key="btn_home", use_container_width=False):
+    if  st.button("Home", key="btn_home2", use_container_width=False):
         st.switch_page("home.py")
 else: 
     st.error("❌ Hasil pembagian armada belum tersedia")
